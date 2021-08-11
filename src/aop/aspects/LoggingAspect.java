@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 
-	@Before("execution(public void get*())")   /* aop.UniLibrary.getBook() */
+	@Before("execution(public void getBook(aop.Book))")   /* aop.UniLibrary.getBook() */
 	public void beforeGetBookAdvice() {
 		System.out.println("beforeGetBookAdvice: попытка получить книгу или журнал.");
 	}
