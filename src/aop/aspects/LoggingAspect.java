@@ -3,26 +3,28 @@ package aop.aspects;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAndSecurityAspect {
+@Order(10)
+public class LoggingAspect {
 
-	@Pointcut("execution(* aop.UniLibrary.*(..))")
-	private void allMethodsFromUniLibrary() {}
-
-	@Pointcut("execution (public void aop.UniLibrary.returnMagazine())")
-	private void returnMagazineFromUniLibrary() {}
-
-	@Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLibrary()")
-	private void allMethodsExceptReturnMagazineFromUniLibrary() {}
-
-
-	@Before("allMethodsExceptReturnMagazineFromUniLibrary()")
-	private void beforeAllMethodsExceptReturnMagazineAdvice() {
-		System.out.println("beforeAllMethodsExceptReturnMagazineAdvice: writing Log #4");
-	}
+//	@Pointcut("execution(* aop.UniLibrary.*(..))")
+//	private void allMethodsFromUniLibrary() {}
+//
+//	@Pointcut("execution (public void aop.UniLibrary.returnMagazine())")
+//	private void returnMagazineFromUniLibrary() {}
+//
+//	@Pointcut("allMethodsFromUniLibrary() && !returnMagazineFromUniLibrary()")
+//	private void allMethodsExceptReturnMagazineFromUniLibrary() {}
+//
+//
+//	@Before("allMethodsExceptReturnMagazineFromUniLibrary()")
+//	private void beforeAllMethodsExceptReturnMagazineAdvice() {
+//		System.out.println("beforeAllMethodsExceptReturnMagazineAdvice: writing Log #4");
+//	}
 
 
 //	@Pointcut("execution(* aop.UniLibrary.get*())")
@@ -54,22 +56,13 @@ public class LoggingAndSecurityAspect {
 //	}
 
 
-//	@Pointcut("execution(* get*())")
-//	private void allGetMethods() {}
-
-//	@Before("allGetMethods()")   /* aop.UniLibrary.getBook() */
-//	public void beforeGetLoggingAdvice() {
-//		System.out.println("beforeGetBookAdvice: попытка получить книгу или журнал.");
-//	}
+	@Before("aop.aspects.MyPointcuts.allGetMethods()")   /* aop.UniLibrary.getBook() */
+	public void beforeGetLoggingAdvice() {
+		System.out.println("beforeGetBookAdvice: логирование попытки получить книгу или журнал.");
+	}
 
 //	@Before("execution(* returnBook())")
 //	public void beforeReturnBookAdvice() {
 //		System.out.println("beforeGetBookAdvice: попытка вернуть книгу или журнал.");
-//	}
-
-//	@Before("allGetMethods()")
-//	public void beforeGetSecurityAdvice() {
-//		System.out.println("beforeGetSecurityAdvice: проверка прав на получение" +
-//				" книги или журнала.");
 //	}
 }
