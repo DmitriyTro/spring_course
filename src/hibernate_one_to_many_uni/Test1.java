@@ -54,15 +54,15 @@ public class Test1 {
 
 //    *******************************************************
 
-			session = factory.getCurrentSession();
-			session.beginTransaction();
-
-			Department department = session.get(Department.class, 2);
-
-			session.delete(department);
-
-			session.getTransaction().commit();
-			System.out.println("Done!");
+//			session = factory.getCurrentSession();
+//			session.beginTransaction();
+//
+//			Department department = session.get(Department.class, 2);
+//
+//			session.delete(department);
+//
+//			session.getTransaction().commit();
+//			System.out.println("Done!");
 		} finally {
 			session.close();
 			factory.close();
