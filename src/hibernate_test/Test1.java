@@ -14,7 +14,6 @@ public class Test1 {
 
 		try {
 			Session session = factory.getCurrentSession();
-<<<<<<< HEAD
 			Employee emp = new Employee("Aleksander", "Ivanov", "IT", 1100);
 			session.beginTransaction();
 			session.save(emp);
@@ -22,12 +21,6 @@ public class Test1 {
 
 			System.out.println("Done!");
 			System.out.println(emp);
-=======
-			Employee emp = new Employee("Anna", "Sidorova", "IT", 900);
-			session.beginTransaction();
-			session.save(emp);
-			session.getTransaction().commit();
->>>>>>> origin/master
 		} finally {
 			factory.close();
 		}
