@@ -1,12 +1,5 @@
 package spring_introduction;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-
 //@Component //def id dog
 //@Scope("prototype")
 public class Dog implements Pet {

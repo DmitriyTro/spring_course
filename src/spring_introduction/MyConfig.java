@@ -2,8 +2,6 @@ package spring_introduction;
 
 import org.springframework.context.annotation.*;
 
-import java.util.concurrent.CancellationException;
-
 @Configuration
 @PropertySource("classpath:myApp.properties")
 //@ComponentScan("spring_introduction")
