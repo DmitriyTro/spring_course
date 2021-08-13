@@ -28,7 +28,7 @@ public class Test1 {
 //
 //			session.beginTransaction();
 //
-//			session.save(section1);
+//			session.persist(section1);
 //
 //			session.getTransaction().commit();
 //			System.out.println("Done!");
@@ -59,9 +59,8 @@ public class Test1 {
 
 			session.beginTransaction();
 
-			Section section = session.get(Section.class, 3);
-			System.out.println(section);
-			System.out.println(section.getChildrens());
+			Section section = session.get(Section.class, 7);
+			session.delete(section);
 
 			session.getTransaction().commit();
 			System.out.println("Done!");
